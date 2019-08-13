@@ -1,0 +1,37 @@
+{% extends 'blog/includes/wrapper.html' %}
+{% block content %}
+    <div class="content container">
+        <div class="main row justify-content-center">
+            <div class="contacts col-12">
+                <div class="cont-dh">
+                    <h3 class="th3">Связаться</h3>
+                </div>
+                <div class="cont-d col-12 row">
+                    <div class="col-6">
+                        <p class="cont-p"></p>
+                    </div>
+                    <div class="col-6">
+                        {% include 'blog/includes/messages.html' %}
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="contacts col-12">
+                <div class="cont-du">
+                    <h3 class="th3">Follow</h3>
+                </div>
+            </div>
+            <div class="col-12">
+                <p></p>
+            </div>
+            <div class="follow-form col-7">
+                {% include 'blog/includes/follow.html' %}
+            </div>
+            <div class="col-12">
+                <hr>
+                {% load instagram %}
+                {% instagram %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

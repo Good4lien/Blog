@@ -1,0 +1,9 @@
+{% load fontawesome %}
+<div class="wsrch">
+    <div class="wsrch-d">
+        <form class="wsrch-f" action="{% url 'search'%}">
+            {% fontawesome_icon 'search'%}
+            <input class="wsrch-i" type="search" placeholder="Search" aria-label="Search" name="search">
+        </form>
+    </div>
+</div>

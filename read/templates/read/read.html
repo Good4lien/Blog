@@ -1,0 +1,11 @@
+{% for book in books %}
+    {% if book.hold %}
+        <style>{{ book.css }}</style>
+        <div class="book">
+            <img class="rdnw-i" src="{{ MEDIA_URL }}{{ book.image.url }}">
+            <p class="rdnw-t css-title">{{ book.title|upper|safe }}</p>
+            <p class="rdnw-a css-author">{{ book.author|upper|safe }}</p>
+            <div class="rdnw-html css-html">{{ book.html|safe }}</div>
+        </div>
+    {% endif %}
+{% endfor %}

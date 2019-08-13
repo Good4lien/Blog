@@ -1,0 +1,10 @@
+{% if user.is_staff %}
+    <div class="addpost">
+        <a class="adpt-a" href="{% url 'admin:index' %}main/posts/add/">
+            <div class="adpt-d">
+                <h4 class="adpt-h">+ Add post</h4>
+            </div>
+        </a>
+    </div>
+    <div class="blackline"></div>
+{% endif %}

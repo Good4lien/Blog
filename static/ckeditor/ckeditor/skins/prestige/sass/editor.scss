@@ -1,0 +1,45 @@
+/* Theme variables. */
+@import 'partials/variables';
+
+/* "Reset" styles, necessary to avoid the editor UI being broken by external CSS. */
+@import 'partials/reset';
+
+/* Styles the main interface structure (holding box). */
+@import 'partials/mainui';
+
+/* Styles all "panels", which are the floating elements that appear when 
+opening toolbar combos, menu buttons, context menus, etc. */
+@import 'partials/panel';
+
+/* Styles the color panel displayed by the color buttons. */
+@import 'partials/colorpanel';
+
+/* Styles to toolbar. */
+@import 'partials/toolbar';
+
+/* Styles menus, which are lists of selectable items (context menu, menu button). */
+@import 'partials/menu';
+
+/* Styles toolbar combos. */
+@import 'partials/richcombo';
+
+/* Styles the elements path bar, available at the bottom of the editor UI.*/
+@import 'partials/elementspath';
+
+/* Styles for notifications. */
+@import 'partials/notifications';
+
+/* Default button icons */
+@import 'partials/icons';
+
+/* Important!
+To avoid showing the editor UI while its styles are still not available, the
+editor creates it with visibility:hidden. Here, we restore the UI visibility. */
+.cke_chrome { visibility: inherit; }
+   
+/* For accessibility purposes, several "voice labels" are present in the UI.
+These are usually <span> elements that show not be visible, but that are
+used by screen-readers to announce other elements. Here, we hide these
+<spans>, in fact. */
+.cke_voice_label { display: none; }
+legend.cke_voice_label { display: none; }

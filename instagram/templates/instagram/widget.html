@@ -1,0 +1,12 @@
+<div class="w-instagram">
+    <div class="row justify-content-center w-in-row">
+        <div class="col-12">
+            <h4 class="w-inp">Instagram</h4>
+        </div>
+        {% for post in posts %}
+            <div class="w-instagram-post col-5.9">
+                <a href="{{ INSTAGRAM_URL }}"><img class="w-if" src="{{ MEDIA_URL }}{{ post.photo.url }}" width="90" height="87"></a>
+            </div>
+        {% endfor %}
+    </div>
+</div>

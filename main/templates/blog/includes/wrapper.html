@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% include 'blog/title.txt' %}</title>
+        {% load staticfiles %}
+        <link rel="icon" href="{% static 'blog/favicon.ico' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap4/css/bootstrap.min.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'blog/css/s10.css' %}" type="text/css">
+        {% load fontawesome %}
+        {% fontawesome_stylesheet %}
+    </head>
+    <body>
+        {% include 'blog/includes/header.html'%}
+        {% block content %}
+
+        {% endblock %}
+        {% include 'blog/includes/admin_buttons.html' %}
+        <div class="no-bottom"></div>
+        {% include 'blog/includes/footer.html' %}
+    </body>
+</html>

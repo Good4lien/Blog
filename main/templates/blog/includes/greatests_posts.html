@@ -1,0 +1,16 @@
+{% for post in q %}
+<div class="gggw">
+    <a class="gtwpa" href="/post/{{ post.id }}">
+        <div class="gtwp row justify-content-center">
+            <div class="gtwpi-d col">
+                {% if post.image %}
+                    <img src="{{ MEDIA_URL }}{{ post.image.url }}" width="70" height="70">
+                {% endif %}
+            </div>
+            <div class="gtwpt col">
+                <p class="gtwph">{% if post.title|length > 9 %}{{ post.title|slice:":8" }}...{% else %}{{ post.title }}{% endif %}</p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endfor %}

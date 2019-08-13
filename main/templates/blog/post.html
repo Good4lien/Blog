@@ -1,0 +1,44 @@
+{% extends 'blog/includes/wrapper.html' %}
+{% block content %}
+{% load fontawesome %}
+{% if posts.moderation or user.is_staff%}
+<div class="content container ju">
+<div class="main row justify-content-center">
+    <div class="post col-10">
+        {% if posts.image %}
+        <div class="pim">
+            <img src="{{ MEDIA_URL }}{{ posts.image.url }}" width="300" height="300">
+        </div>
+        {% endif %}
+        <h3 class="pt-h">
+            <a class="pa" href="">{{ posts.title }}</a>
+            {% if user.is_staff %}
+                <a href="{% url 'admin:index' %}main/posts/{{ posts.id }}/change/">{% fontawesome_icon 'pencil'%}</a>
+            {% endif %}
+        </h3>
+        <div class="pp-d">{{posts.content|safe|linebreaks}}</div>
+        {%  if posts.tags.count > 0  %}
+        <p class="ptags">
+            <i>Tags: </i>
+            {% for tag in posts.tags.all %}
+                <a href="" class="atag">{{ tag.title }}</a>{% if not forloop.last %},{% endif %}
+            {% endfor %}
+        </p>
+        {% endif %}
+        <hr>
+        <div class="row justify-content-between">
+            <div class="col-4">
+                <h5 class="pd-h">{{ posts.date|date:"d-m-Y" }}</h5>
+            </div>
+            <div class="col-2">
+                <h5 class="pl-h"><a href="/posts/addlike/{{ posts.id }}/">{% fontawesome_icon 'heart' %}</a> {{ posts.likes }} Likes</h5>
+            </div>
+        </div>
+    </div>
+    <div class="rw col-2">
+        {% include 'blog/includes/widget.html'%}
+    </div>
+</div>
+</div>
+{% endif %}
+{% endblock %}

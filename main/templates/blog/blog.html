@@ -1,0 +1,49 @@
+{% extends 'blog/includes/wrapper.html' %}
+{% block content %}
+{% load fontawesome %}
+<div class="content container">
+    <div class="main row justify-content-center">
+        <div class="posts col-10">
+            {% for post in object_list %}
+                <div class="post">
+                    {% if post.image %}
+                    <div class="pim">
+                        <a href="/post/{{ post.id }}"><img src="{{ MEDIA_URL }}{{ post.image.url }}" width="300" height="300"></a>
+                    </div>
+                    {% endif %}
+                    <h3 class="pt-h">
+                        <a class="pa" href="/post/{{ post.id }}">{{ post.title }}</a>
+                        {% if user.is_staff %}
+                            <a href="{% url 'admin:index' %}main/posts/{{ post.id }}/change/">{% fontawesome_icon 'pencil'%}</a>
+                        {% endif %}
+                    </h3>
+                    <div class="pp-d">{{post.preview|safe|linebreaks}}</div>
+                    <a class="pr-a" href="/post/{{ post.id }}">Читать далее</a>
+                    {% if post.tags.count > 0  %}
+                    <p class="ptags">
+                        <i>Tags: </i>
+                        {% for tag in post.tags.all %}
+                            <a href="" class="atag">{{ tag.title }}</a>{% if not forloop.last %},{% endif %}
+                        {% endfor %}
+                    </p>
+                    {% endif %}
+                    <hr>
+                    <div class="row justify-content-between">
+                        <div class="col-4">
+                            <h5 class="pd-h">{{ post.date|date:"d-m-Y" }}</h5>
+                        </div>
+                        <div class="col-2">
+                            <h5 class="pl-h"><a href="/posts/addlike/{{ post.id }}/">{% fontawesome_icon 'heart' %}</a> {{ post.likes }} Likes</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="no-blackline"></div>
+            {% endfor %}
+            {% include 'blog/includes/pagination.html' %}
+        </div>
+        <div class="r_widget col-2">
+            {% include 'blog/includes/widget.html'%}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<form class="cont-form" action="" method="post">
+    {% csrf_token %}
+    <div class="row">
+        <label class="flabel col-5">First name</label>
+        <label class="slabel col-5">Last name</label>
+        {{ mess_form.first_name }}
+        {{ mess_form.last_name }}
+        <label class="flabel col-12">Email address</label>
+        {{ mess_form.email }}
+        <label class="flabel col-12">Subject</label>
+        {{ mess_form.subject }}
+        <label class="flabel col-12">Message</label>
+        {{ mess_form.message}}
+        <input class="form-inp-btn col-3" type="submit" value="SUBMIT">
+    </div>
+</form>

@@ -1,0 +1,16 @@
+{% load fontawesome %}
+{% if user.is_staff %}
+<div class="adp">
+    <div class="adp-d">
+        <a class="adp-a" href="{% url 'admin:index' %}">{% fontawesome_icon 'gears' large=True %}</a>
+    </div>
+</div>
+<div class="mop">
+    <div class="mop-d">
+        <a class="mop-a" href="{% url 'mod' %}">{% fontawesome_icon 'edit' large=True %}</a>
+    </div>
+</div>
+<div class="abs-m">
+    <a style="color: black; text-decoration: none" href="{% url 'mod' %}"><h1 class="abs-m-h">M</h1></a>
+</div>
+{% endif %}

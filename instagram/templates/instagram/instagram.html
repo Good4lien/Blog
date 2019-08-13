@@ -1,0 +1,20 @@
+<div class="instagram">
+    <div class="row justify-content-center">
+        <h3 class="inh col-12">Instagram</h3>
+    {% for post in posts %}
+        <div class="instagram-post col-2.4">
+            <a href="" class="ind"><img src="{{ MEDIA_URL }}{{ post.photo.url }}" width="200" height="200"></a>
+            <div class="modal">
+                <img class="inimg" src="{{ post.photo_load.url }}" width="600" height="700">
+                <div class="modal-div">
+                    {% if post.text %}
+                    <div class="txtdiv">
+                        <p class="modal-text">{{ post.text|safe }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>

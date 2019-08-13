@@ -1,0 +1,6 @@
+{% load fontawesome %}
+<div class="rdnw">
+    <h2 class="rdnw-h" ;>Сейчас читаю {% if user.is_staff %}<a href="{% url 'admin:index' %}read/books/" class="rdnw-ae">{% fontawesome_icon 'gear'%}</a>{% endif %}</h2>
+    {% load read_books %}
+    {% show_books %}
+</div>

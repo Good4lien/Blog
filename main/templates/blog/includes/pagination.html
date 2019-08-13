@@ -1,0 +1,18 @@
+<div class="pg">
+    <div class="pagination row justify-content-between">
+        <div class="col-2">
+            {% if page_obj.has_previous %}
+                <a class="pg-a" href="?page={{ page_obj.previous_page_number }}">
+                    ← Назад
+                </a>
+            {% endif %}
+        </div>
+        <div class="col-2 pg-r">
+            {% if page_obj.has_next %}
+                <a class="pg-a" href="?page={{ page_obj.next_page_number }}">
+                    Далее →
+                </a>
+            {% endif %}
+         </div>
+    </div>
+</div>
